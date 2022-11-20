@@ -12,8 +12,8 @@ module.exports.createUser = async serviceData => {
     const hashPassword = await bcrypt.hash(serviceData.password, 12)
 
     const newUser = new User({
-      email: serviceData.email,
-      password: hashPassword,
+      email: serviceData.email, 
+      password: hashPassword, 
       firstName: serviceData.firstName,
       lastName: serviceData.lastName
     })
@@ -36,7 +36,7 @@ module.exports.getUserProfile = async serviceData => {
     if (!user) {
       throw new Error('User not found!')
     }
-
+ 
     return user.toObject()
   } catch (error) {
     console.error('Error in userService.js', error)
